@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Currency Converter: AA1872</title>
+    <style>
+
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 0 10px;
+  background: linear-gradient(to bottom, #000428 0%, #004e92 100%);
+}
+
+.wrapper{
+  width: 370px;
+  padding: 30px;
+  border-radius: 7px;
+  background: #fff;
+}
+
+.wrapper header{
+  font-size: 28px;
+  font-weight: 500;
+  text-align: center;
+}
+
+form .drop-list{
+  display: flex;
+  margin-top: 10px;
+  margin-right: 70px;
+  margin-left: 70px;
+  justify-content: space-between;
+}
+
+form button{
+  display: flex;
+  margin-top: 20px;
+  height: 30px;
+  color: #fff;
+  font-size: 16px;
+  font-family: 'Times New Roman', Times, serif;
+  cursor: pointer;
+  padding-right: 20px;
+  padding-left: 20px;
+  background: #004e92 ;
+
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+    <header>Currency Converter</header>
+  
+    <form method="post" action="/">
+        <center>
+        
+            <div class="amount">
+                <p>Enter Amount</p>
+                <input type="text" name="amount"> 
+            </div>
+
+            <div class="drop-list">
+                <div class="from">
+                  <p>From</p>
+                  <div class="select-box">
+                    <select name="currencytype01" id="currencytype01">
+                        {%for i in range(0, len)%}
+                        <option value="{{currencyList[i]}}">{{currencyList[i]}}</option>
+                        {%endfor%}
+                    </select>
+
+                  </div>
+                </div>
+                <div class="icon"><i class="fas fa-exchange-alt"></i></div>
+
+                <div class="to">
+                  <p>To</p>
+                  <div class="select-box">
+                  
+                    <select name="currencytype02" id="currencytype02">
+                        {%for i in range(0, len)%}
+                        <option value="{{currencyList[i]}}">{{currencyList[i]}}</option>
+                        {%endfor%}
+                    </select>
+                  </div>
+                </div>
+              </div>
+           
+              <button>Convert</button>
+              <br> <br>
+            
+              <lable>Converted Amount: {{ output }}</lable>
+              
+          
+    </center>
+    </form>
+    </div>
+</body>
+
+</html>
